@@ -2,7 +2,7 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-    <nav className="flex px-8 justify-between py-6 shadow-md">
+    <nav className="flex px-8 justify-between py-6 shadow-lg sticky top-0 bg-white z-50">
       <h1 className="font-archivo text-xl font-bold">sneakers</h1>
 
       <div className="relative">
