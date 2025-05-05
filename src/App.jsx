@@ -3,12 +3,10 @@ import { ProductDetail } from "./pages/ProductDetail";
 
 function App() {
   return (
-    <>
-      <div>
-        <Navbar />
-        <ProductDetail />
-      </div>
-    </>
+    <div>
+      <Navbar />
+      <ProductDetail />
+    </div>
   );
 }
 
