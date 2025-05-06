@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const ProductInfo = () => {
+  const [qty, setQty] = useState(1);
+
+  const increment = () => {
+    setQty(qty + 1);
+  };
+
+  const decrement = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  };
   return (
     <div className="my-8 max-w-md flex flex-col justify-center">
       <h1 className="font-inter text-lg font-bold text-gray-500 tracking-widest pb-5">
@@ -16,16 +27,22 @@ export const ProductInfo = () => {
         Rp799.000 <span className="line-through font-normal">Rp999.000</span>
       </p>
       <div className="flex gap-4 pt-12">
-        <button className="bg-gray-200 w-10 h-10 rounded-lg text-orange-400 font-bold">
+        <button
+          className="bg-gray-100 w-10 h-10 rounded-lg text-orange-400 font-bold cursor-pointer"
+          onClick={decrement}
+        >
           -
         </button>
-        <button className="bg-gray-200 w-10 h-10 rounded-lg text-black">
-          1
+        <button className="bg-gray-100 w-10 h-10 rounded-lg text-black">
+          {qty}
         </button>
-        <button className="bg-gray-200 w-10 h-10 rounded-lg text-orange-400 font-bold">
+        <button
+          className="bg-gray-100 w-10 h-10 rounded-lg text-orange-400 font-bold cursor-pointer"
+          onClick={increment}
+        >
           +
         </button>
-        <button className="bg-orange-400 w-30 h-10 rounded-md text-white">
+        <button className="bg-orange-400 w-30 h-10 rounded-md text-white cursor-pointer">
           Add to cart
         </button>
       </div>
