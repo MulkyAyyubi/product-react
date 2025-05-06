@@ -1,31 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const ProductImages = () => {
+const images = [
+  "/product1.png",
+  "/product3.jpg",
+  "/product4.jpg",
+  "/product5.jpg",
+];
+
+const ProductImages = () => {
+  const [selected, setSelected] = useState(0);
+
+  console.log("gambar ke = ${selected}");
+
   return (
     <div className="flex flex-col gap-4 px-24 py-8">
-      <img src="/product1.png" alt="gambar produk" className="rounded-lg" />
+      <img src={images[selected]} alt="gambar produk" className="rounded-lg" />
 
       <div className="flex gap-4 overflow-x-auto justify-between">
-        <img
-          src="/product1.png"
-          alt="gambar produk"
-          className="rounded-lg w-32"
-        />
-        <img
-          src="/product3.jpg"
-          alt="gambar produk"
-          className="rounded-lg w-32"
-        />
-        <img
-          src="/product4.jpg"
-          alt="gambar produk"
-          className="rounded-lg w-32"
-        />
-        <img
-          src="/product5.jpg"
-          alt="gambar produk"
-          className="rounded-lg w-32"
-        />
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt="Gambar Product"
+            className={`rounded-xl w-32 border-2 ${
+              selected === index ? "border-black" : "border-transparent"
+            }`}
+            onClick={() => setSelected(index)}
+          />
+        ))}
+        ;
       </div>
     </div>
   );
