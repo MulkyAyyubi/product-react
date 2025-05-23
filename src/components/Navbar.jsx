@@ -7,9 +7,11 @@ export const Navbar = ({ cartQty }) => {
 
       <div className="relative">
         <img src="/cart.svg" alt="cart icon" />
-        <h1 className="w-6 h-6 bg-red-400 items-center flex justify-center rounded-full text-white absolute -top-4 -right-4">
-          {cartQty}
-        </h1>
+        {cartQty > 0 && (
+          <h1 className="w-6 h-6 bg-red-400 items-center flex justify-center rounded-full text-white absolute -top-4 -right-4">
+            {cartQty}
+          </h1>
+        )}
       </div>
     </nav>
   );

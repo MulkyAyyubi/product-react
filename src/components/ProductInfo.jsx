@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const ProductInfo = () => {
+export const ProductInfo = ({ onAddToCart }) => {
   const [qty, setQty] = useState(1);
 
   const increment = () => {
@@ -11,6 +11,10 @@ export const ProductInfo = () => {
     if (qty > 1) {
       setQty(qty - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    onAddToCart();
   };
   return (
     <div className="my-8 max-w-md flex flex-col justify-center">
@@ -42,7 +46,10 @@ export const ProductInfo = () => {
         >
           +
         </button>
-        <button className="bg-orange-400 w-30 h-10 rounded-md text-white cursor-pointer">
+        <button
+          className="bg-orange-400 w-30 h-10 rounded-md text-white cursor-pointer"
+          onClick={handleAddToCart}
+        >
           Add to cart
         </button>
       </div>
